@@ -7,14 +7,32 @@ const crewSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  profilePhoto: {
+    type: String,
+    default: '' 
+  },
+  birthday: {
+    type: Date,
+
+  },
+  typerating: {
+    type: String,
+    enum: ['A319/320/321', 'A330', 'A350']
+  },
+
+  email: {
+    type: String
+  },
+  phone: {
+    type: Number
+  },
+  license: {
+    type: Date
+  },
   role: {
     type: String,
     required: true,
     enum: ['Pilot', 'Co-Pilot', 'Flight Attendant', 'Engineer']
-  },
-  id: {
-    type: String,
-    required: true
   },
   status: {
     type: String,
