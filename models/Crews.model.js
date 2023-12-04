@@ -7,10 +7,7 @@ const crewSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  profilePhoto: {
-    type: String,
-    default: '' 
-  },
+  
   birthday: {
     type: Date,
 
@@ -24,7 +21,7 @@ const crewSchema = new mongoose.Schema({
     type: String
   },
   phone: {
-    type: Number
+    type: String
   },
   license: {
     type: Date
@@ -38,9 +35,11 @@ const crewSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ['Active', 'On Leave', 'Retired']
+  },
+  profilePicture: { // New field for profile picture URL
+    type: String
   }
 });
 
 const Crew = mongoose.model('Crew', crewSchema);
 module.exports = Crew;
-

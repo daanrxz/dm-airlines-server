@@ -12,9 +12,9 @@ const Crew = require("../models/Crews.model"); // Adjust the path as necessary
 
 // POST '/api/crews' - Creates a new crew member
 router.post("/crews", (req, res) => {
-    const { name, birthday, email, phone, typerating, license, role, status } = req.body;
+    const { name, birthday, email, phone, typerating, license, role, status, profilePicture } = req.body;
 
-    Crew.create({ name, birthday, email, phone, typerating, license, role, status })
+    Crew.create({ name, birthday, email, phone, typerating, license, role, status, profilePicture })
         .then(response => res.json({ crewId: response._id }))
         .catch(error => res.json(error));
 });
@@ -38,9 +38,9 @@ router.get("/crews/:crewId", (req, res) => {
 // PUT '/api/crews/:crewId' - Updates a specific crew member
 router.put("/crews/:crewId", (req, res) => {
     const { crewId } = req.params;
-    const { name, birthday, email, phone, typerating, license, role, status } = req.body;
+    const { name, birthday, email, phone, typerating, license, role, status, profilePicture } = req.body;
 
-    Crew.findByIdAndUpdate(crewId, { name, birthday, email, phone, typerating, license, role, status }, { new: true })
+    Crew.findByIdAndUpdate(crewId, { name, birthday, email, phone, typerating, license, role, status, profilePicture }, { new: true })
         .then(updatedCrew => {
             res.json({ message: "Crew member updated!", updatedCrew });
         })
