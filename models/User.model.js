@@ -20,10 +20,7 @@ const userSchema = new Schema(
     },
     picture: {
       type: String
-    },  
-    
-    picture: {type: String},
-
+    }, 
     birthday: {
       type: Date
     }
