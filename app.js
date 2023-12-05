@@ -29,6 +29,9 @@ app.use('/user', userRoutes);
 const crewRoutes = require("./routes/crew.routes"); // Adjust the path as necessary
 app.use("/api", crewRoutes); // Prefixing the crew routes with '/api'
 
+//Flight routes
+const flightRoutes = require('./routes/flight.routes'); // Ensure the path is correct
+app.use('/api', flightRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
