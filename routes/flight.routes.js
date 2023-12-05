@@ -25,12 +25,11 @@ router.get("/flights", (req, res) => {
 });
 
 // GET '/api/flights/:flightId' - Reads a specific flight
-router.get("/flights/:flightId", (req, res) => {
-  const { flightId } = req.params;
-  Flight.findById(flightId)
-   /*  .populate('aircraft crew') // Populate aircraft and crew details */
-    .then((flight) => res.json(flight))
-    .catch((error) => res.json(error));
+router.get('/flights/:flightId', (req, res) => {
+  Flight.findById(req.params.flightId)
+      .populate('crew') // This will include crew member details
+      .then(flight => res.json(flight))
+      .catch(err => res.status(500).json(err));
 });
 
 // PUT '/api/flights/:flightId' - Updates a specific flight

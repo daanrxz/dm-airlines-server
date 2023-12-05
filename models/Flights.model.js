@@ -23,15 +23,14 @@ const flightSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  /* aircraft: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Aircraft',
+  aircraft: {
+    type: String,
     required: true
   },
   crew: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Crew'
-  }], */
+  }],
   airline: {
     type: String,
     required: true
