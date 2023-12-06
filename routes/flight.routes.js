@@ -9,8 +9,8 @@ const Flight = require("../models/Flights.model"); // Adjust the path as necessa
 /* ROUTES */
 // POST '/api/flight' - Creates a new flight
 router.post("/flights", (req, res) => {
-  const { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, /* aircraft, crew, */ airline, status, price, duration } = req.body;
-  Flight.create({ flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime,/*  aircraft, crew, */ airline, status, price, duration })
+  const { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, aircraft, crew, airline, status, price, duration } = req.body;
+  Flight.create({ flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, aircraft, crew, airline, status, price, duration })
     
   .then((response) => res.json(response))
     .catch((error) => res.json(error));
@@ -35,8 +35,8 @@ router.get('/flights/:flightId', (req, res) => {
 // PUT '/api/flights/:flightId' - Updates a specific flight
 router.put("/flights/:flightId", (req, res) => {
   const { flightId } = req.params;
-  const { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, /* aircraft, crew, */ airline, status, price, duration } = req.body;
-  Flight.findByIdAndUpdate(flightId, { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, /* aircraft, crew, */ airline, status, price, duration }, { new: true })
+  const { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, aircraft, crew, airline, status, price, duration } = req.body;
+  Flight.findByIdAndUpdate(flightId, { flightNumber, departureAirport, arrivalAirport, departureTime, arrivalTime, aircraft, crew, airline, status, price, duration }, { new: true })
     .then((updatedFlight) => {
       res.json({ message: "Flight Updated!", updatedFlight });
     })
