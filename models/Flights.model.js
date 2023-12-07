@@ -25,7 +25,6 @@ const flightSchema = new mongoose.Schema({
   },
   aircraft: {
     type: String,
-    required: true
   },
   crew: [{
     type: mongoose.Schema.Types.ObjectId,
