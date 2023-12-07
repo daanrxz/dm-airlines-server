@@ -8,6 +8,7 @@ const router = express.Router();
 /* Require the Crew Model */
 const Crew = require("../models/Crews.model"); // Adjust the path as necessary
 
+const Flight = require("../models/Flights.model");
 
 /* ROUTES */
 
@@ -35,7 +36,14 @@ router.get("/crews/:crewId", (req, res) => {
         .then(crewMember => res.json(crewMember))
         .catch(error => res.json(error));
 });
+// GET '/api/crews/:crewId/flights' - Reads flights for a specific crew member
+router.get('/crews/:crewId/flights', (req, res) => {
+    const { crewId } = req.params;
 
+    Flight.find({ crew: crewId })
+        .then(flights => res.json(flights))
+        .catch(err => res.status(500).json({ message: 'Error fetching flights', error: err }));
+});
 // PUT '/api/crews/:crewId' - Updates a specific crew member
 router.put("/crews/:crewId", (req, res) => {
     const { crewId } = req.params;

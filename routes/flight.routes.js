@@ -18,6 +18,7 @@ router.post("/flights", (req, res) => {
 
 // GET '/api/flights' - Reads all flights
 router.get("/flights", (req, res) => {
+  console.log("Received flight data:", req.body);  
   Flight.find()
     /* .populate('aircraft crew') // Populate aircraft and crew details */
     .then((allFlights) => res.json(allFlights))

@@ -38,7 +38,11 @@ const crewSchema = new mongoose.Schema({
   },
   profilePicture: { // New field for profile picture URL
     type: String
-  }
+  },
+  upcomingFlights: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Flight'
+  }]
 });
 
 const Crew = mongoose.model('Crew', crewSchema);

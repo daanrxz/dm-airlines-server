@@ -33,7 +33,7 @@ const flightSchema = new mongoose.Schema({
   }],
   airline: {
     type: String,
-    required: true
+
   },
   status: {
     type: String,
@@ -42,7 +42,7 @@ const flightSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true
+
   },
   duration: {
     type: Number,
